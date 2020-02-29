@@ -1,0 +1,200 @@
+<html>
+
+<head>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
+</head>
+
+
+<body>
+    <a href="{{url_for('back')}}"><div style='width: 5%; left: 1%; position: absolute; border-color: darkcyan;'>← BACK</div></a>
+    <h1>Food and Drinks</h1>
+    <div class='food'> 
+        <h3>FOOD</h3>
+        <h4>What will the people eat?</h4>
+            <input type="text" name="appetizers" id='appetizers' placeholder="Write names of appetizers here"><br>
+            <input type='text' name='mainEntrees' id='mainEntrees' placeholder='Write names of main entrees here'><br>
+            <input type='text' name='desserts' id='desserts' placeholder="Write names of desserts here"><br>
+            <input type='text' name='snacks' id='snacks' placeholder="Write names of snacks here">
+    </div>
+        
+    <div class='drinks'>
+        <h3>DRINKS</h3>
+        <h4>What will the people drink? Will it be just water, or something more interesting like juice or soda?</h4>
+            <input type="text" name='drinks' id='drinks' placeholder="Write names of drinks here">
+    </div>
+        
+    <div class='silverware'>
+        <h3>Silverware</h3>
+        <h4>What will the people use to eat?</h4>
+        
+            <input type="text" name='forks' id='forks' placeholder="Do you have forks?"><br>
+            <input type="text" name='knives' id='knives' placeholder="Do you have knives?"><br>
+            <input type="text" name='spoons' id='spoons' placeholder="Do you have spoons?">
+    </div>
+
+    <div class='dinnerware'>
+        <h3>Dinnerware</h3>
+        <h4>What will the people use to eat?</h4>
+        
+            <input type="text" name='plates' id='plates' placeholder="Do you have plates?"><br>
+            <input type="text" name='bowls' id='bowls' placeholder="Do you have bowls?"><br>
+            <input type="text" name='cups' id='cups' placeholder="Do you have cups?"><br>   
+            <input type="text" name='napkins' id='napkins' placeholder="Do have napkins?">
+    </div>
+    
+    <div style='margin-top: 1%; border-bottom-style: hidden;'><button onclick='submit()'>SUBMIT</button></div>
+
+    <script>
+        document.getElementById('appetizers').value = "{{ posts[0].inputVal }}";
+        document.getElementById('mainEntrees').value = "{{ posts[1].inputVal }}";
+        document.getElementById('desserts').value = "{{ posts[2].inputVal }}";
+        document.getElementById('snacks').value = "{{ posts[3].inputVal }}";
+
+        document.getElementById('drinks').value = "{{ posts[4].inputVal }}";
+
+        document.getElementById('forks').value = "{{ posts[5].inputVal }}";
+        document.getElementById('knives').value = "{{ posts[6].inputVal }}";
+        document.getElementById('spoons').value = "{{ posts[7].inputVal }}";
+
+        document.getElementById('plates').value = "{{ posts[8].inputVal }}";
+        document.getElementById('bowls').value = "{{ posts[9].inputVal }}";
+        document.getElementById('cups').value = "{{ posts[10].inputVal }}";
+
+        document.getElementById('napkins').value = "{{ posts[11].inputVal }}";
+
+        var elements=[["appetizers", "mainEntrees", "desserts", "snacks"], ["drinks"], ["forks", "knives", "spoons"], ['plates', "bowls", 'cups', "napkins"]];
+        
+
+        console.log($('#cups').parent().get(0).tagName)
+
+        for(i in elements){
+            ar=elements[i]
+            console.log(ar)
+            /*
+            var boolFood='false'
+            var boolDrinks='false'
+            var boolSilverware='false'
+            var boolDinnerware='false'
+            */
+            var index=0;
+            var max=ar.length;
+            var maxLength=ar.length;
+            console.log(max)
+            while(index<max){
+                var value=$("#"+ar[index]).val();
+                console.log($("#"+ar[index]).val())
+                if(value){
+                    maxLength-=1;
+                } else {
+                    console.log('undefined value');
+                }
+                index+=1;
+            }
+            console.log("#"+ar[0])
+            //var parentClass = $("#"+ar[0]).parent().get().className;
+            var parentClass=$("#"+ar[0]).parent().attr('class')
+            console.log(parentClass)
+            console.log(maxLength)
+            if(maxLength==0){
+                console.log('GREEEN')
+                $('.'+parentClass).css('background-color', 'palegreen')
+            } else if(maxLength!=0){
+                console.log('REEEED')
+                $('.'+parentClass).css('background-color', 'orangered')
+            } else{
+                console.log('other')
+            }
+        }
+        /*
+        for(el of elements){
+                var value=$("#"+el).val();
+                if(value == ''){
+                    $('.'+el).css('background-color', 'red');
+                } else if(value){
+                    $('.'+el).css('background-color', '#33cc33');
+                } else{
+                    console.log('undefined value')
+                }
+                
+            }
+        */
+        function submit(){
+            var appetizers = '#appetizers';
+            var mainEntrees = '#mainEntrees';
+            var desserts = '#desserts';
+            var snacks = '#snacks';
+
+            var drinks = '#drinks';
+            
+            var forks= '#forks';
+            var knives = '#knives';
+            var spoons = '#spoons';
+
+            var plates = '#plates';
+            var bowls = '#bowls';
+            var cups = '#cups';
+
+            var napkins = '#napkins';
+
+            var elements=[appetizers, mainEntrees, desserts, snacks, drinks, forks, knives, spoons, plates, bowls, cups, napkins];
+            //var i=0; i<elements.length; i++
+            for(i in elements){
+                value=$(elements[i]).val();
+                if (value == ''){
+                    $(elements[i]).addClass('False');
+                } else if(value){
+                    $(elements[i]).addClass('True');
+                } else {
+                    console.log('undefined value');
+                }
+                console.log($(elements[i]).attr('class'));
+            }
+
+            var obj = {
+                "appetizers": $('#appetizers').attr('class'),
+                "mainEntrees": $('#mainEntrees').attr('class'),
+                "desserts": $('#desserts').attr('class'),
+                "snacks": $('#snacks').attr('class'),
+                "drinks": $('#drinks').attr('class'),
+                "forks": $('#forks').attr('class'),
+                "knives": $('#knives').attr('class'),
+                "spoons": $('#spoons').attr('class'),
+                "plates": $('#plates').attr('class'),
+                "bowls": $('#bowls').attr('class'),
+                "cups": $('#cups').attr('class'),
+                "napkins": $('#napkins').attr('class'),
+
+                "appetizersText": $('#appetizers').val(),
+                "mainEntreesText": $('#mainEntrees').val(),
+                "dessertsText": $('#desserts').val(),
+                "snacksText": $('#snacks').val(),
+                "drinksText": $('#drinks').val(),
+                "forksText": $('#forks').val(),
+                "knivesText": $('#knives').val(),
+                "spoonsText": $('#spoons').val(),
+                "platesText": $('#plates').val(),
+                "bowlsText": $('#bowls').val(),
+                "cupsText": $('#cups').val(),
+                "napkinsText": $('#napkins').val()
+            };
+            console.log(obj);
+
+            $.ajax({
+                url: '/processFoodAndDrinks',
+                data: obj,
+                method: 'POST',
+                success: function(){
+                    window.location='/';
+                }
+            });
+        }
+    </script>
+    {% for message in get_flashed_messages() %}
+        {{ message }}
+    {% endfor %}
+</body>
+
+</html>

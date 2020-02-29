@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+</head>
+
+
+<body>
+
+
+    <h1>ACCOUNT LOGIN</h1>
+    <div class='container'>
+        <form class='loginForm' action='' method='post'>
+            <input type = 'text' placeholder='USERNAME' type='text' name='username' id='username' value='{{request.form.username}}'>
+            <input type = 'password' placeholder='PASSWORD' type='text' name='password' id='password' value='{{request.form.password}}'>
+
+            <div>
+                <h3>Don't have an account? <a>Create One</a></h3>
+            </div>
+
+            <input placeholder='Log In' type='submit' value='login' name='login' id='submitbtn' class='btn btn-default'>
+        </form>
+        <!--single curly brace is used for python-like expressions, such as conditionals and loops-->
+        <!--Message below is only displayed if error = True-->
+        {% if error%}
+            <!--Double curly brace is used for variables or results of an expression-->
+            <p class='error'><strong>Error:</strong>{{ error }}</p>
+        {% endif %}
+
+        {% for message in get_flashed_messages() %}
+            {{ message }}
+        {% endfor %}
+    </div>
+
+    <div id='testid'></div>
+
+    <script>
+        //on submitting the form, execute the function below
+        $('.loginForm').on('submit',
+            //below is the function that is called.
+            function() {
+                alert('form submitted');
+                //get the values of the submitted username and password in the form of variables.
+                var usernameVal = $('#username').val();
+                var passwordVal = $('#password').val();
+
+                //create an object that includes the credentials.
+                credentials = {
+                    'username': usernameVal,
+                    'password': passwordVal
+                }
+                alert(credentials['username']);
+
+            }
+        );
+        
+    </script>
+</body>
+
+</html>

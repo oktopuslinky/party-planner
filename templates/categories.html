@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
+
+    <style>
+        body{
+            background-color: lightgray;
+            font-family: 'Lato', sans-serif;
+        }
+        h1{
+            font-family: 'Oswald', sans-serif;
+            font-size: 4em;
+            text-align: center;
+            text-decoration: underline;
+        }
+        
+        img{
+            width: 20em;
+        }
+
+        button{
+            margin-right: 0.5em;
+            margin-left: 0.5em;
+            background-color: coral;
+            opacity: 0.7;
+            border-top-style: hidden;
+            border-left-style: hidden;
+            border-right-style: hidden;
+            border-bottom-style: hidden;
+        }
+
+        button:hover{
+            cursor: pointer;
+            opacity: 1;
+        }
+
+        p{
+            font-size: 2em;
+            font-family: 'Lato', sans-serif;
+        }
+
+        div{
+            margin: auto;
+            width: 56em;
+        }
+
+        a{
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Party Planning Categories</h1>
+    <div>
+        <a href='/foodAndDrinks'>
+            <button>
+                <img src="{{ url_for('static', filename='croissant.png') }}" id='food'>
+                <p>Food and Drinks</p>
+            </button>
+        </a>
+
+        <a href='/ambience'>
+            <button>
+                <img src="{{ url_for('static', filename='lightbulb.png') }}" id='lightbulb'>
+                <p>Ambience</p>
+            </button>
+        </a>
+        
+        <a href='/guests'>
+            <button>
+                <img src="{{ url_for('static', filename='guests.png') }}" id='guests'>
+                <p>Guests</p>
+            </button>
+        </a>
+    </div>
+</body>
+
+</html>

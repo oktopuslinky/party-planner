@@ -1,0 +1,94 @@
+<html>
+    <head>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
+    </head>
+
+    <body>
+        <a href="{{url_for('back')}}"><div style='width: 5%; left: 1%; position: absolute; border-color: darkcyan;'>← BACK</div></a>
+        <h1>Guests</h1>
+            <div class='guestList'>
+                <h3>GUEST LIST</h3>
+                <h4>Who is invited to the party? Tell these people that they are invited!</h4>
+                <input type="text" name='guestList' id='guestList' placeholder="Make Guest List">
+            </div>
+            
+            <div class='volunteerSignup'>
+                <h3>VOLUNTEER SIGNUP</h3>
+                <h4>Will there be a need for volunteers at this party? Send out a signup, so that people know about this opportunity.</h4>
+                <input type="text" name='volunteerSignup' id='volunteerSignup' placeholder="Send Out Volunteer Signup">
+            </div>
+            
+            <div class='eventInfo'>
+                <h3>EVENT INFO</h3>
+                <h4>Tell people about your party, so that they can come to it!</h4>
+                <input type="text" name='eventInfo' id='eventInfo' placeholder="Send Out Event Info">
+            </div>
+
+            <div style='margin-top: 1%; border-bottom-style: hidden;'><button onclick='submit()'>SUBMIT</button></div>
+
+            {% for message in get_flashed_messages() %}
+                {{ message }}
+            {% endfor %}
+
+        <script>
+            document.getElementById("guestList").value = "{{ posts[0].inputVal }}";
+            document.getElementById("volunteerSignup").value = "{{ posts[1].inputVal }}";
+            document.getElementById("eventInfo").value = "{{ posts[2].inputVal }}";
+
+            var elements = ["guestList", "volunteerSignup", "eventInfo"];
+            for(el of elements){
+                var value=$("#"+el).val();
+                if(value == ''){
+                    $('.'+el).css('background-color', 'orangered');
+                } else if(value){
+                    $('.'+el).css('background-color', 'palegreen');
+                } else{
+                    console.log('undefined value')
+                }
+                
+            }
+
+            function submit(){
+                var guestList = '#guestList';
+                var volunteerSignup = '#volunteerSignup';
+                var eventInfo = '#eventInfo';
+
+                var elements = [guestList, volunteerSignup, eventInfo];
+
+                for(i in elements){
+                    value=$(elements[i]).val();
+                    if (value == ''){
+                        $(elements[i]).addClass('False');
+                    } else if(value){
+                        $(elements[i]).addClass('True');
+                    } else {
+                        console.log('undefined value');
+                    }
+                    console.log($(elements[i]).attr('class'));
+                }
+
+                var obj = {
+                    "guestList": $('#guestList').attr('class'),
+                    "volunteerSignup": $('#volunteerSignup').attr('class'),
+                    "eventInfo": $('#eventInfo').attr('class'),
+
+                    "guestListText": $('#guestList').val(),
+                    "volunteerSignupText": $('#volunteerSignup').val(),
+                    "eventInfoText": $('#eventInfo').val()
+                };
+
+                $.ajax({
+                    url: '/processGuests',
+                    data: obj,
+                    method: 'POST',
+                    success: function(){
+                        window.location='/';
+                    }
+                });
+            }
+        </script>
+    </body>
+</html>

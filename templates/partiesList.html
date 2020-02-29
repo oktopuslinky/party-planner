@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+
+    </head>
+
+    <body>
+        <h1>THIS WILL BE THE LIST OF YOUR PARTIES</h1>
+        <p>There will only be one party, but options for the party will be shown, such as deleting the party or working on the party.</p>
+        {% for message in get_flashed_messages() %}
+            {{ message }}
+        {% endfor %}
+    </body>
+
+</html>

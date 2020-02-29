@@ -1,0 +1,43 @@
+INSERT INTO party1 VALUES(
+            """
+                [
+                    {'id': 'Food', 'checked': 'False', 'desc': 'What food will be there? What will there be for each of the courses (Appetizers, Main Entrees, Desserts, and Snacks)?'},
+                    {'id': 'Drinks', 'checked': 'False', 'desc': 'What will the people be drinking? Will it just be water, or something more interesting like soda or juice?'},
+                    {'id': 'Tableware', 'checked': 'False', 'desc': 'Do you already have all of the silverware (Forks, Knives, and Spoons)?<br>How about the dinnerware (Plates, Bowls, and Cups)?'}
+                ]
+            """, 
+            """
+                [
+                    {'id': 'Lighting', 'checked': 'False', 'desc': 'What type of lighting do you want? Regular lighting on the ceiling, or something more snazzy like a disco ball?'}, 
+                    {'id': 'Decorations', 'checked': 'False', 'desc': 'What are you going to use to decorate the party venue?'}, 
+                    {'id': 'Music', 'checked': 'False', 'desc': 'What music will your playlist have?<br>How about the speakers to play the music from?'}
+                    {'id': 'Entertainment', 'checked': 'False', 'desc': 'What kinds of things will there be to entertain the guests attending the party (for example stations)?'}
+                ]
+            """,
+            """
+                [
+                    {'id': 'sterile-gauze-pads', 'checked': 'False', 'desc': 'FIRST AID KIT: Sterile Gauze Pads'}, 
+                    {'id': 'adhesive-tape', 'checked': 'False', 'desc': 'FIRST AID KIT: Adhesive Tape'}, 
+                    {'id': 'adhesive-bandages', 'checked': 'False', 'desc': 'FIRST AID KIT: Adhesive Bandages (Band-Aids)'}, 
+                    {'id': 'exam-gloves', 'checked': 'False', 'desc': 'FIRST AID KIT: Exam Gloves'}, 
+                    {'id': 'antiseptic-pads', 'checked': 'False', 'desc': 'FIRST AID KIT: Antiseptic Pads'}, 
+                    {'id': 'tweezers', 'checked': 'False', 'desc': 'FIRST AID KIT: Tweezers'}, 
+                    {'id': 'ice-packs', 'checked': 'False', 'desc': 'FIRST AID KIT: Ice Packs'}, 
+                    {'id': 'itch-cream', 'checked': 'False', 'desc': 'FIRST AID KIT: Itch Cream/After-Bite Ointment'}, 
+                    {'id': 'antibiotic-cream', 'checked': 'False', 'desc': 'FIRST AID KIT: Antibiotic Cream'}, 
+                    {'id': 'digital-thermometer', 'checked': 'False', 'desc': 'FIRST AID KIT: Digital Thermometer'},
+                    {'id': 'towels', 'checked': 'False', 'desc': 'CLEANING SUPPLIES: Towels'}, 
+                    {'id': 'mop', 'checked': 'False', 'desc': 'CLEANING SUPPLIES: Mop'}, 
+                    {'id': 'broom', 'checked': 'False', 'desc': 'CLEANING SUPPLIES: Broom'}, 
+                    {'id': 'trash-can', 'checked': 'False', 'desc': 'CLEANING SUPPLIES: Trash Can'}, 
+                    {'id': 'spray-bottle', 'checked': 'False', 'desc': 'CLEANING SUPPLIES: Spray Bottle'}
+                ]
+            """,
+            """
+                [
+                    {'id': 'guest-list', 'checked': 'False', 'desc': 'Who will you invite to the party?'}, 
+                    {'id': 'volunteer-sign-up', 'checked': 'False', 'desc': 'Is there going to be a volunteer sign-up? Then send out a volunteer sign-up!'}, 
+                    {'id': 'event-info', 'checked': 'False', 'desc': 'Have you sent out the event info, in any form, may it be through E-mail or flyers?'}, 
+                ]
+            """
+        )
