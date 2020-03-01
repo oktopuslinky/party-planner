@@ -2,7 +2,7 @@
 It allows people to plan parties.
 
 SETUP:
-  1. Go to command line, and type (DIR is the directory that the directory that the folder is located in):
+  1. Go to command line, and type (DIR is the directory on your computer that the folder is located in):
   
     cd DIR
   
