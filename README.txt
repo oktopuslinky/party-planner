@@ -2,11 +2,13 @@
 It allows people to plan parties.
 
 SETUP:
-  1. Go to command line, and type (DIR is the directory on your computer that the folder is located in):
+  1. Install python onto your computer, and make sure to add it to your PATH while installing (the installer will tell you to do so)
+  
+  2. Go to command line, and type (DIR is the directory on your computer that the folder is located in):
   
     cd DIR
   
-  2. Paste the following lines of code into the command line:
+  3. Paste the following lines of code into the command line:
   
     pip install virtualenv
     pip install virtualenvwrapper-win
