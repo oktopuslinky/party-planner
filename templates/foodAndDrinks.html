@@ -72,20 +72,14 @@
 
         for(i in elements){
             ar=elements[i]
-            console.log(ar)
-            /*
-            var boolFood='false'
-            var boolDrinks='false'
-            var boolSilverware='false'
-            var boolDinnerware='false'
-            */
+
             var index=0;
             var max=ar.length;
             var maxLength=ar.length;
-            console.log(max)
+
             while(index<max){
                 var value=$("#"+ar[index]).val();
-                console.log($("#"+ar[index]).val())
+
                 if(value){
                     maxLength-=1;
                 } else {
@@ -93,34 +87,19 @@
                 }
                 index+=1;
             }
-            console.log("#"+ar[0])
-            //var parentClass = $("#"+ar[0]).parent().get().className;
             var parentClass=$("#"+ar[0]).parent().attr('class')
-            console.log(parentClass)
-            console.log(maxLength)
+
             if(maxLength==0){
-                console.log('GREEEN')
+
                 $('.'+parentClass).css('background-color', 'palegreen')
             } else if(maxLength!=0){
-                console.log('REEEED')
+
                 $('.'+parentClass).css('background-color', 'orangered')
             } else{
                 console.log('other')
             }
         }
-        /*
-        for(el of elements){
-                var value=$("#"+el).val();
-                if(value == ''){
-                    $('.'+el).css('background-color', 'red');
-                } else if(value){
-                    $('.'+el).css('background-color', '#33cc33');
-                } else{
-                    console.log('undefined value')
-                }
-                
-            }
-        */
+
         function submit(){
             var appetizers = '#appetizers';
             var mainEntrees = '#mainEntrees';
@@ -140,7 +119,7 @@
             var napkins = '#napkins';
 
             var elements=[appetizers, mainEntrees, desserts, snacks, drinks, forks, knives, spoons, plates, bowls, cups, napkins];
-            //var i=0; i<elements.length; i++
+
             for(i in elements){
                 value=$(elements[i]).val();
                 if (value == ''){
@@ -150,7 +129,7 @@
                 } else {
                     console.log('undefined value');
                 }
-                console.log($(elements[i]).attr('class'));
+
             }
 
             var obj = {
@@ -180,7 +159,6 @@
                 "cupsText": $('#cups').val(),
                 "napkinsText": $('#napkins').val()
             };
-            console.log(obj);
 
             $.ajax({
                 url: '/processFoodAndDrinks',
@@ -192,9 +170,7 @@
             });
         }
     </script>
-    {% for message in get_flashed_messages() %}
-        {{ message }}
-    {% endfor %}
+
 </body>
 
 </html>

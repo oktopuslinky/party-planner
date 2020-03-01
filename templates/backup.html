@@ -45,52 +45,17 @@
             </div>
             <button onclick='submit()'>Submit</button>
         </div>
-        {% for message in get_flashed_messages() %}
-            {{ message }}
-        {% endfor %}
 
         <script>
-            //$('#sterileGauzePads').attr('checked', false);
-            //$('#sterileGauzePads')[0].checked = false;
-            /*
-            $('#sterileGauzePads').prop('checked', 'true');
-            console.log($('#sterileGauzePads').attr('checked'));
-            function hasAttr(el, attr){
-                var checking = $(el).attr(attr);
-                if(checking){
-                    console.log('true')
-                } else{
-                    console.log('false')
-                }
-            }
-            hasAttr('#sterileGauzePads', 'checked');
-            */
+            
             document.getElementById("towels").checked = true;
             console.log('true')
             document.getElementById("towels").checked = false;
-            //$("#towels").removeAttr('checked');
-
-            /*document.getElementById('sterileGauzePads').checked = "{{ posts[0].checked }}";
-            document.getElementById('adhesiveTape').checked = "{{ posts[1].checked }}";
-            console.log("{{ posts[7].checked }}");
-            document.getElementById('bandAids').checked = "{{ posts[2].checked }}";
-            document.getElementById('examGloves').checked = "{{ posts[3].checked }}";
-            document.getElementById('antisepticPads').checked = "{{ posts[4].checked }}";
-            */
+            
             document.getElementById('tweezers').checked = "{{ posts[5].checked }}";
             console.log("{{ posts[5].checked }}")
             document.getElementById('icePacks').checked = "{{ posts[6].checked }}";
-            /*
-            document.getElementById('itchCream').checked = "{{ posts[7].checked }}";
-            document.getElementById('antibioticCream').checked = "{{ posts[8].checked }}";
-            document.getElementById('digitalThermometer').checked = "{{ posts[9].checked }}";
             
-            document.getElementById('towels').checked = "{{ posts[10].checked }}";
-            document.getElementById('mop').checked = "{{ posts[11].checked }}";
-            document.getElementById('broom').checked = "{{ posts[12].checked }}";
-            document.getElementById('trashCan').checked = "{{ posts[13].checked }}";
-            document.getElementById('sprayBottle').checked = "{{ posts[14].checked }}";
-*/
             function submit(){
                 var sterileGauzePads= '#sterileGauzePads';
                 var adhesiveTape= '#adhesiveTape';
@@ -135,7 +100,6 @@
                     } else {
                         console.log('undefined value');
                     }
-                    console.log($(elements[i]).attr('class'));
                 }
 
                 var obj = {
