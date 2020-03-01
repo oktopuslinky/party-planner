@@ -12,6 +12,7 @@ SETUP:
     pip install virtualenvwrapper-win
     mkvirtualenv venv
     setprojectdir .
+    pip install flask
     python sql.py
     
 *YOU CAN NOW SAFELY EXIT OUT OF THE COMMAND LINE*
