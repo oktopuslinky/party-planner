@@ -1,1 +1,0 @@
-This folder has the CSS and other styling files in it.
